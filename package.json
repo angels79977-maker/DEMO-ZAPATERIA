@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "set PATH=%PATH%;C:\\Program Files\\nodejs&&next dev",
-    "build": "set PATH=%PATH%;C:\\Program Files\\nodejs&&next build",
-    "start": "set PATH=%PATH%;C:\\Program Files\\nodejs&&next start",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "eslint ."
   },
   "dependencies": {
