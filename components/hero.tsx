@@ -43,7 +43,7 @@ export function Hero({ onCtaClick }: { onCtaClick: () => void }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/REEMPLAZO.png"
+            src="/images/ZAPATOSOFF.png"
              alt="Sneaker premium de la nueva colección SHOP SHOES"
             className="mx-auto w-full max-w-lg rounded-2xl object-cover shadow-2xl"
           />
