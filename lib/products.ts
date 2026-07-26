@@ -21,7 +21,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'vertex-runner',
     name: 'Vertex Runner Pro',
-    brand: 'PASO FIRME',
+    brand: 'SHOP SHOES',
     category: 'Caballero',
     price: 1299,
     originalPrice: 1799,
@@ -69,7 +69,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'street-classic',
     name: 'Street Classic Low',
-    brand: 'PASO FIRME',
+    brand: 'SHOP SHOES',
     category: 'Urbano',
     price: 799,
     originalPrice: 999,
@@ -105,7 +105,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'trail-max',
     name: 'Trail Max GTX',
-    brand: 'PASO FIRME',
+    brand: 'SHOP SHOES',
     category: 'Urbano',
     price: 1449,
     originalPrice: null,

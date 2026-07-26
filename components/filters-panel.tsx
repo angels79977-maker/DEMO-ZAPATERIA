@@ -43,7 +43,7 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
                 type="checkbox"
                 checked={filters.categories.includes(cat)}
                 onChange={() => toggleCategory(cat)}
-                className="size-4 accent-[oklch(0.696_0.17_162.48)]"
+                className="size-4 accent-primary"
               />
               {cat}
             </label>
@@ -84,7 +84,7 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
           step={50}
           value={filters.maxPrice}
           onChange={(e) => onChange({ ...filters, maxPrice: Number(e.target.value) })}
-          className="w-full accent-[oklch(0.696_0.17_162.48)]"
+          className="w-full accent-primary"
           aria-label="Precio máximo"
         />
         <div className="mt-1 flex justify-between text-xs text-muted-foreground">

@@ -11,8 +11,8 @@ export function WhatsAppButton() {
 
   const lastItem = items[items.length - 1]
   const message = lastItem
-    ? `Hola PASO FIRME 👟 Me interesa el modelo "${lastItem.product.name}" en talla ${lastItem.size} MX. ¿Me pueden dar más información?`
-    : 'Hola PASO FIRME 👟 Estoy viendo su tienda en línea y me gustaría recibir asesoría sobre su calzado.'
+    ? `Hola SHOP SHOES 👟 Me interesa el modelo "${lastItem.product.name}" en talla ${lastItem.size} MX. ¿Me pueden dar más información?`
+    : 'Hola SHOP SHOES 👟 Estoy viendo su tienda en línea y me gustaría recibir asesoría sobre su calzado.'
 
   return (
     <motion.a

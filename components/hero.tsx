@@ -43,8 +43,8 @@ export function Hero({ onCtaClick }: { onCtaClick: () => void }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/hero-shoe.png"
-            alt="Sneaker premium de la nueva colección PASO FIRME"
+            src="/images/REEMPLAZO.png"
+             alt="Sneaker premium de la nueva colección SHOP SHOES"
             className="mx-auto w-full max-w-lg rounded-2xl object-cover shadow-2xl"
           />
           <div className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-card px-5 py-2 text-xs font-bold text-card-foreground shadow-lg">

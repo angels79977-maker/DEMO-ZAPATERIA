@@ -23,12 +23,12 @@ export function SiteHeader({ searchQuery, onSearchChange, onNavigate }: SiteHead
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-secondary text-secondary-foreground">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 lg:px-8">
-        <a href="#" className="flex shrink-0 items-baseline gap-1.5" aria-label="PASO FIRME - Inicio">
+        <a href="#" className="flex shrink-0 items-baseline gap-1.5" aria-label="SHOP SHOES - Inicio">
           <span className="text-lg font-black tracking-tight text-secondary-foreground">
-            PASO<span className="text-primary">FIRME</span>
+            SHOP SHOES
           </span>
           <span className="hidden text-[10px] font-medium uppercase tracking-widest text-secondary-foreground/60 sm:inline">
-            Calzado &amp; Style
+            Calzado &amp; Estilo
           </span>
         </a>
 

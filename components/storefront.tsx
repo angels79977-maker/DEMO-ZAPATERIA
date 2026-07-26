@@ -36,6 +36,20 @@ export function Storefront() {
             scrollToCatalog()
           }}
         />
+        <div className="mx-auto max-w-7xl px-4 pt-6 lg:px-8">
+          <a href="#catalogo" className="block relative overflow-hidden rounded-2xl">
+            <img
+              src="/images/promo-shoes.png"
+              alt="Ofertas especiales en calzado SHOP SHOES"
+              className="h-auto w-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+              <span className="rounded-full bg-primary px-6 py-3 text-lg font-black text-primary-foreground shadow-lg">
+                OFERTAS ESPECIALES
+              </span>
+            </div>
+          </a>
+        </div>
         {activeNavCategory && (
           <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 pt-6 lg:px-8">
             <span className="rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-accent-foreground">
@@ -56,10 +70,10 @@ export function Storefront() {
       <footer className="border-t border-border bg-secondary py-8 text-secondary-foreground">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 text-center lg:px-8">
           <p className="text-lg font-black tracking-tight">
-            PASO<span className="text-primary">FIRME</span>
+            SHOP SHOES
           </p>
           <p className="text-xs text-secondary-foreground/60">
-            {'Calzado & Style · Envíos a todo México · Prototipo de demostración'}
+            Calzado &amp; Estilo · Envíos a todo México · Prototipo de demostración
           </p>
         </div>
       </footer>

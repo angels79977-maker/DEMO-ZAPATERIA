@@ -7,14 +7,14 @@ const _geistSans = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'PASO FIRME - Calzado & Style | Zapatería Online México',
+  title: 'SHOP SHOES — Calzado Premium',
   description:
     'Tienda en línea de calzado premium para dama, caballero y niños. Envío gratis a todo México en compras mayores a $999. 3 meses sin intereses.',
   generator: 'v0.app',
 }
 
 export const viewport: Viewport = {
-  themeColor: '#1e2532',
+  themeColor: '#4E342E',
 }
 
 export default function RootLayout({
