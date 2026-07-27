@@ -7,7 +7,6 @@ import { CartDrawer } from './cart-drawer'
 import { Hero } from './hero'
 import { ProductCatalog } from './product-catalog'
 import { SiteHeader } from './site-header'
-import { WhatsAppButton } from './whatsapp-button'
 
 export function Storefront() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -79,7 +78,6 @@ export function Storefront() {
       </footer>
 
       <CartDrawer />
-      <WhatsAppButton />
     </CartProvider>
   )
 }
