@@ -60,12 +60,12 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
             exit={{ opacity: 0 }}
             className="absolute inset-0 bg-foreground/70"
             onClick={step === 3 ? handleFinish : handleClose}
-            aria-label="Cerrar pago"
+            aria-label="Close checkout"
           />
           <motion.div
             role="dialog"
             aria-modal="true"
-            aria-label="Proceso de pago"
+            aria-label="Checkout process"
             initial={{ opacity: 0, scale: 0.95, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
@@ -75,7 +75,7 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
             {step < 3 && (
               <>
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-bold">Finalizar Compra</h2>
+                  <h2 className="text-lg font-bold">Checkout</h2>
                   <button
                     type="button"
                     onClick={handleClose}
@@ -95,7 +95,7 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                   ))}
                 </div>
                 <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Paso {step} de 2 · {step === 1 ? 'Dirección de Envío' : 'Método de Pago'}
+                  Paso {step} de 2 · {step === 1 ? 'Shipping Address' : 'Payment Method'}
                 </p>
               </>
             )}
@@ -110,7 +110,7 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
               >
                 <div>
                   <label htmlFor="street" className="text-sm font-semibold">
-                    Calle y número
+                    Street and number
                   </label>
                   <input
                     id="street"
@@ -118,14 +118,14 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                     required
                     value={address.street}
                     onChange={(e) => setAddress({ ...address, street: e.target.value })}
-                    placeholder="Av. Universidad 123, Col. Centro"
+                    placeholder="123 Main St, Downtown"
                     className="mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm focus:border-primary focus:outline-none"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label htmlFor="checkout-zip" className="text-sm font-semibold">
-                      C.P.
+                      ZIP
                     </label>
                     <input
                       id="checkout-zip"
@@ -143,7 +143,7 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                   </div>
                   <div>
                     <label htmlFor="city" className="text-sm font-semibold">
-                      Ciudad
+                      City
                     </label>
                     <input
                       id="city"
@@ -161,7 +161,7 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                   disabled={!addressValid}
                   className="mt-2 w-full rounded-full bg-primary py-3 text-sm font-bold text-primary-foreground transition-opacity disabled:opacity-40"
                 >
-                  Continuar al Pago
+                  Continue to Payment
                 </button>
               </form>
             )}
@@ -170,24 +170,24 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
               <div className="mt-4 flex flex-col gap-3">
                 {(
                   [
-                    {
-                      id: 'card' as const,
-                      icon: CreditCard,
-                      title: 'Tarjeta de Crédito / Débito',
-                      subtitle: 'Pago seguro con Stripe · 3 MSI disponibles',
-                    },
-                    {
-                      id: 'oxxo' as const,
-                      icon: Banknote,
-                      title: 'Mercado Pago / OXXO',
-                      subtitle: 'Paga en efectivo en tu tienda más cercana',
-                    },
-                    {
-                      id: 'spei' as const,
-                      icon: Landmark,
-                      title: 'Transferencia SPEI',
-                      subtitle: 'Desde tu app bancaria, confirmación inmediata',
-                    },
+                     {
+                       id: 'card' as const,
+                       icon: CreditCard,
+                       title: 'Credit / Debit Card',
+                       subtitle: 'Secure payment with Stripe · 3 interest-free installments',
+                     },
+                     {
+                       id: 'oxxo' as const,
+                       icon: Banknote,
+                       title: 'Mercado Pago / OXXO',
+                       subtitle: 'Pay in cash at your nearest store',
+                     },
+                     {
+                       id: 'spei' as const,
+                       icon: Landmark,
+                       title: 'SPEI Transfer',
+                       subtitle: 'From your banking app, instant confirmation',
+                     },
                   ] satisfies { id: PaymentMethod; icon: typeof CreditCard; title: string; subtitle: string }[]
                 ).map((method) => (
                   <button
@@ -220,22 +220,22 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                         placeholder="4242 4242 4242 4242"
                         disabled
                         className="w-full rounded-lg border border-input bg-card px-3 py-2 text-sm"
-                        aria-label="Número de tarjeta (demostración)"
+                        aria-label="Card number (demo)"
                       />
                       <div className="grid grid-cols-2 gap-2">
                         <input
                           type="text"
-                          placeholder="MM/AA"
+                          placeholder="MM/YY"
                           disabled
                           className="rounded-lg border border-input bg-card px-3 py-2 text-sm"
-                          aria-label="Fecha de expiración (demostración)"
+                          aria-label="Expiration date (demo)"
                         />
                         <input
                           type="text"
                           placeholder="CVC"
                           disabled
                           className="rounded-lg border border-input bg-card px-3 py-2 text-sm"
-                          aria-label="CVC (demostración)"
+                          aria-label="CVC (demo)"
                         />
                       </div>
                     </div>
@@ -248,14 +248,14 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                     onClick={() => setStep(1)}
                     className="flex-1 rounded-full border border-border py-3 text-sm font-bold transition-colors hover:bg-muted"
                   >
-                    Regresar
+                    Back
                   </button>
                   <button
                     type="button"
                     onClick={handleConfirmPayment}
                     className="flex-1 rounded-full bg-primary py-3 text-sm font-bold text-primary-foreground"
                   >
-                    Pagar {formatMXN(total)}
+                    Pay {formatMXN(total)}
                   </button>
                 </div>
               </div>
@@ -271,14 +271,14 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                   <CheckCircle2 className="size-16 text-primary" aria-hidden="true" />
                 </motion.div>
                 <div>
-                  <h2 className="text-xl font-black">¡Pedido Confirmado!</h2>
+                  <h2 className="text-xl font-black">Order Confirmed!</h2>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Gracias por tu compra de {formatMXN(orderTotal)}
+                    Thank you for your purchase of {formatMXN(orderTotal)}
                   </p>
                 </div>
                 <div className="w-full rounded-xl bg-muted p-4">
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    Número de orden
+                    Order number
                   </p>
                   <p className="mt-1 font-mono text-lg font-black">{orderId}</p>
                 </div>
@@ -287,23 +287,23 @@ export function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                   className="flex w-full items-center justify-center gap-2 rounded-full border border-border py-3 text-sm font-bold transition-colors hover:bg-muted"
                 >
                   <FileDown className="size-4" aria-hidden="true" />
-                  Imprimir Guía de Envío (PDF)
+                  Print Shipping Guide (PDF)
                 </button>
                 <a
-                  href={`https://wa.me/5216141234567?text=${encodeURIComponent(`Hola, quiero recibir la notificación y guía de mi pedido ${orderId} por WhatsApp`)}`}
+                  href={`https://wa.me/5216141234567?text=${encodeURIComponent(`Hi, I want to receive the notification and guide for my order ${orderId} via WhatsApp`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-whatsapp py-3 text-sm font-bold text-primary-foreground transition-transform hover:scale-[1.02]"
                 >
                   <MessageCircle className="size-4" aria-hidden="true" />
-                  Recibir notificación y guía por WhatsApp
+                  Receive notification and guide via WhatsApp
                 </a>
                 <button
                   type="button"
                   onClick={handleFinish}
                   className="text-sm font-medium text-muted-foreground underline-offset-2 hover:underline"
                 >
-                  Seguir comprando
+                  Continue Shopping
                 </button>
               </div>
             )}

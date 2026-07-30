@@ -8,10 +8,10 @@ import { SIZE_GUIDE } from '@/lib/products'
 interface SizeGuideModalProps {
   open: boolean
   onClose: () => void
-  horma: string
+  fit: string
 }
 
-export function SizeGuideModal({ open, onClose, horma }: SizeGuideModalProps) {
+export function SizeGuideModal({ open, onClose, fit }: SizeGuideModalProps) {
   useEffect(() => {
     if (!open) return
     const handler = (e: KeyboardEvent) => {
@@ -32,12 +32,12 @@ export function SizeGuideModal({ open, onClose, horma }: SizeGuideModalProps) {
             exit={{ opacity: 0 }}
             className="absolute inset-0 bg-foreground/60"
             onClick={onClose}
-            aria-label="Cerrar guía de tallas"
+            aria-label="Close size guide"
           />
           <motion.div
             role="dialog"
             aria-modal="true"
-            aria-label="Guía de tallas"
+            aria-label="Size guide"
             initial={{ opacity: 0, scale: 0.95, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 12 }}
@@ -47,7 +47,7 @@ export function SizeGuideModal({ open, onClose, horma }: SizeGuideModalProps) {
             <div className="flex items-center justify-between">
               <h2 className="flex items-center gap-2 text-lg font-bold">
                 <Ruler className="size-5 text-primary" aria-hidden="true" />
-                Guía de Tallas
+                Size Guide
               </h2>
               <button
                 type="button"
@@ -61,24 +61,24 @@ export function SizeGuideModal({ open, onClose, horma }: SizeGuideModalProps) {
 
             <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-accent-foreground">
               <span className="size-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              {horma}
+              {fit}
             </div>
 
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Mide tu pie del talón a la punta del dedo más largo (en cm) y compara con la tabla:
+              Measure your foot from heel to the tip of your longest toe (in cm) and compare with the table:
             </p>
 
             <table className="mt-3 w-full text-sm">
               <thead>
                 <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-muted-foreground">
                   <th scope="col" className="py-2 font-semibold">
-                    Pie (cm)
+                    Foot (cm)
                   </th>
                   <th scope="col" className="py-2 font-semibold">
-                    Talla MX
+                    Size MX
                   </th>
                   <th scope="col" className="py-2 font-semibold">
-                    Talla US
+                    Size US
                   </th>
                 </tr>
               </thead>

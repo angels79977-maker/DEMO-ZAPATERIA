@@ -63,23 +63,23 @@ export function ProductCard({ product }: { product: Product }) {
 
         {product.msi && (
           <span className="inline-flex w-fit items-center gap-1.5 rounded-md bg-accent px-2 py-1 text-[11px] font-semibold text-accent-foreground">
-            <CreditCard className="size-3.5" aria-hidden="true" />3 Meses Sin Intereses
+            <CreditCard className="size-3.5" aria-hidden="true" />3 Months Interest-Free
           </span>
         )}
 
         <div>
           <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold text-muted-foreground">Talla MX</p>
+            <p className="text-xs font-semibold text-muted-foreground">Size MX</p>
             <button
               type="button"
               onClick={() => setGuideOpen(true)}
               className="flex items-center gap-1 text-xs font-medium text-primary underline-offset-2 hover:underline"
             >
               <Ruler className="size-3.5" aria-hidden="true" />
-              Guía de Tallas
+              Size Guide
             </button>
           </div>
-          <div className="mt-2 flex flex-wrap gap-1.5" role="group" aria-label="Seleccionar talla">
+          <div className="mt-2 flex flex-wrap gap-1.5" role="group" aria-label="Select size">
             {SIZES.map((size) => {
               const available = (product.stock[size] ?? 0) > 0
               const isSelected = selectedSize === size
@@ -116,13 +116,13 @@ export function ProductCard({ product }: { product: Product }) {
             role="status"
           >
             <Flame className="size-3.5" aria-hidden="true" />
-            {`¡Últimos ${selectedStock} ${selectedStock === 1 ? 'par' : 'pares'} en Talla ${selectedSize} MX!`}
+            {`Only ${selectedStock} ${selectedStock === 1 ? 'pair' : 'pairs'} left in Size ${selectedSize} MX!`}
           </motion.p>
         )}
 
         {showError && (
           <p className="text-xs font-semibold text-destructive" role="alert">
-            Selecciona una talla para continuar
+            Select a size to continue
           </p>
         )}
 
@@ -136,11 +136,11 @@ export function ProductCard({ product }: { product: Product }) {
           }`}
         >
           <ShoppingBag className="size-4" aria-hidden="true" />
-          Agregar al Carrito
+          Add to Cart
         </button>
       </div>
 
-      <SizeGuideModal open={guideOpen} onClose={() => setGuideOpen(false)} horma={product.horma} />
+      <SizeGuideModal open={guideOpen} onClose={() => setGuideOpen(false)} fit={product.fit} />
     </article>
   )
 }

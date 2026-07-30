@@ -34,12 +34,12 @@ export function CartDrawer() {
               exit={{ opacity: 0 }}
               className="absolute inset-0 bg-foreground/60"
               onClick={closeDrawer}
-              aria-label="Cerrar carrito"
+              aria-label="Close cart"
             />
             <motion.div
               role="dialog"
               aria-modal="true"
-              aria-label="Carrito de compras"
+              aria-label="Shopping Cart"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -49,7 +49,7 @@ export function CartDrawer() {
               <div className="flex items-center justify-between border-b border-border px-5 py-4">
                 <h2 className="flex items-center gap-2 text-lg font-bold">
                   <ShoppingBag className="size-5 text-primary" aria-hidden="true" />
-                  Tu Carrito
+                  Your Cart
                 </h2>
                 <button
                   type="button"
@@ -64,16 +64,16 @@ export function CartDrawer() {
               {items.length === 0 ? (
                 <div className="flex flex-1 flex-col items-center justify-center gap-3 p-8 text-center">
                   <ShoppingBag className="size-12 text-muted-foreground/40" aria-hidden="true" />
-                  <p className="font-bold">Tu carrito está vacío</p>
+                  <p className="font-bold">Your cart is empty</p>
                   <p className="text-sm text-muted-foreground">
-                    Agrega tu par favorito y aparecerá aquí.
+                    Add your favorite pair and it will appear here.
                   </p>
                   <button
                     type="button"
                     onClick={closeDrawer}
                     className="mt-2 rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground"
                   >
-                    Seguir comprando
+                    Continue Shopping
                   </button>
                 </div>
               ) : (
@@ -92,14 +92,14 @@ export function CartDrawer() {
                             <div>
                               <p className="text-sm font-bold leading-snug">{item.product.name}</p>
                               <p className="text-xs text-muted-foreground">
-                                Talla {item.size} MX
+                                 Size {item.size} MX
                               </p>
                             </div>
                             <button
                               type="button"
                               onClick={() => removeItem(item.product.id, item.size)}
                               className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-destructive"
-                              aria-label={`Eliminar ${item.product.name} talla ${item.size}`}
+                              aria-label={`Remove ${item.product.name} size ${item.size}`}
                             >
                               <Trash2 className="size-4" aria-hidden="true" />
                             </button>
@@ -113,7 +113,7 @@ export function CartDrawer() {
                                 }
                                 className="rounded-full p-1 transition-colors hover:bg-muted disabled:opacity-40"
                                 disabled={item.quantity <= 1}
-                                aria-label="Disminuir cantidad"
+                                aria-label="Decrease quantity"
                               >
                                 <Minus className="size-3.5" aria-hidden="true" />
                               </button>
@@ -126,7 +126,7 @@ export function CartDrawer() {
                                   updateQuantity(item.product.id, item.size, item.quantity + 1)
                                 }
                                 className="rounded-full p-1 transition-colors hover:bg-muted"
-                                aria-label="Aumentar cantidad"
+                                aria-label="Increase quantity"
                               >
                                 <Plus className="size-3.5" aria-hidden="true" />
                               </button>
@@ -146,7 +146,7 @@ export function CartDrawer() {
                       className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground"
                     >
                       <Truck className="size-3.5" aria-hidden="true" />
-                      Calcula tu envío (C.P.)
+                      Calculate shipping (ZIP)
                     </label>
                     <input
                       id="zip-input"
@@ -155,7 +155,7 @@ export function CartDrawer() {
                       maxLength={5}
                       value={zipCode}
                       onChange={(e) => setZipCode(e.target.value.replace(/\D/g, ''))}
-                      placeholder="Ej. 31000"
+                      placeholder="e.g. 31000"
                       className="mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none"
                     />
 
@@ -165,10 +165,10 @@ export function CartDrawer() {
                         <dd className="font-semibold">{formatMXN(subtotal)}</dd>
                       </div>
                       <div className="flex justify-between">
-                        <dt className="text-muted-foreground">Costo de Envío</dt>
+                        <dt className="text-muted-foreground">Shipping Cost</dt>
                         <dd className="font-semibold">
                           {shipping == null ? (
-                            <span className="text-xs text-muted-foreground">Ingresa tu C.P.</span>
+                            <span className="text-xs text-muted-foreground">Enter your ZIP code</span>
                           ) : shipping === 0 ? (
                             <span className="font-bold text-primary">GRATIS</span>
                           ) : (
@@ -177,7 +177,7 @@ export function CartDrawer() {
                         </dd>
                       </div>
                       <div className="mt-1 flex justify-between border-t border-border pt-2 text-base">
-                        <dt className="font-bold">Total Final</dt>
+                        <dt className="font-bold">Final Total</dt>
                         <dd className="font-black">{formatMXN(total)}</dd>
                       </div>
                     </dl>
@@ -187,7 +187,7 @@ export function CartDrawer() {
                       onClick={() => setCheckoutOpen(true)}
                       className="mt-4 w-full rounded-full bg-primary py-3.5 text-sm font-bold uppercase tracking-wide text-primary-foreground transition-transform hover:scale-[1.02] active:scale-95"
                     >
-                      Proceder al Pago
+                      Proceed to Checkout
                     </button>
                   </div>
                 </>

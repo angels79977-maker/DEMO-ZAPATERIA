@@ -10,7 +10,7 @@ export interface Filters {
 
 export const MAX_PRICE = 2500
 
-const CATEGORIES: Category[] = ['Dama', 'Caballero', 'Urbano', 'Botas']
+const CATEGORIES: Category[] = ['Women', 'Men', 'Urban', 'Boots']
 
 interface FiltersPanelProps {
   filters: Filters
@@ -35,7 +35,7 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
   return (
     <div className="flex flex-col gap-6">
       <fieldset>
-        <legend className="mb-3 text-sm font-bold uppercase tracking-wide">Categoría</legend>
+        <legend className="mb-3 text-sm font-bold uppercase tracking-wide">Category</legend>
         <div className="flex flex-col gap-2">
           {CATEGORIES.map((cat) => (
             <label key={cat} className="flex cursor-pointer items-center gap-2.5 text-sm">
@@ -52,7 +52,7 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
       </fieldset>
 
       <fieldset>
-        <legend className="mb-3 text-sm font-bold uppercase tracking-wide">Talla MX</legend>
+        <legend className="mb-3 text-sm font-bold uppercase tracking-wide">Size MX</legend>
         <div className="flex flex-wrap gap-1.5">
           {SIZES.map((size) => {
             const active = filters.sizes.includes(size)
@@ -76,7 +76,7 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
       </fieldset>
 
       <fieldset>
-        <legend className="mb-3 text-sm font-bold uppercase tracking-wide">Precio máximo</legend>
+        <legend className="mb-3 text-sm font-bold uppercase tracking-wide">Max Price</legend>
         <input
           type="range"
           min={500}
@@ -85,7 +85,7 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
           value={filters.maxPrice}
           onChange={(e) => onChange({ ...filters, maxPrice: Number(e.target.value) })}
           className="w-full accent-primary"
-          aria-label="Precio máximo"
+          aria-label="Max Price"
         />
         <div className="mt-1 flex justify-between text-xs text-muted-foreground">
           <span>{formatMXN(500)}</span>
@@ -98,7 +98,7 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
         onClick={() => onChange({ categories: [], sizes: [], maxPrice: MAX_PRICE })}
         className="text-sm font-medium text-primary underline-offset-2 hover:underline"
       >
-        Limpiar filtros
+        Clear filters
       </button>
     </div>
   )

@@ -4,17 +4,17 @@ import { Search, ShoppingBag } from 'lucide-react'
 import { useCart } from '@/lib/cart-context'
 import type { Category } from '@/lib/products'
 
-const NAV_LINKS: { label: string; category: Category | 'Ofertas' }[] = [
-  { label: 'Dama', category: 'Dama' },
-  { label: 'Caballero', category: 'Caballero' },
-  { label: 'Niños', category: 'Urbano' },
-  { label: 'Ofertas', category: 'Ofertas' },
+const NAV_LINKS: { label: string; category: Category | 'Sale' }[] = [
+  { label: 'Women', category: 'Women' },
+  { label: 'Men', category: 'Men' },
+  { label: 'Urban', category: 'Urban' },
+  { label: 'Sale', category: 'Sale' },
 ]
 
 interface SiteHeaderProps {
   searchQuery: string
   onSearchChange: (query: string) => void
-  onNavigate: (category: Category | 'Ofertas') => void
+  onNavigate: (category: Category | 'Sale') => void
 }
 
 export function SiteHeader({ searchQuery, onSearchChange, onNavigate }: SiteHeaderProps) {
@@ -23,12 +23,12 @@ export function SiteHeader({ searchQuery, onSearchChange, onNavigate }: SiteHead
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-secondary text-secondary-foreground">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 lg:px-8">
-        <a href="#" className="flex shrink-0 items-baseline gap-1.5" aria-label="SHOP SHOES - Inicio">
+        <a href="#" className="flex shrink-0 items-baseline gap-1.5" aria-label="SHOP SHOES - Home">
           <span className="text-lg font-black tracking-tight text-secondary-foreground">
             SHOP SHOES
           </span>
           <span className="hidden text-[10px] font-medium uppercase tracking-widest text-secondary-foreground/60 sm:inline">
-            Calzado &amp; Estilo
+             Shoes &amp; Style
           </span>
         </a>
 
@@ -41,20 +41,20 @@ export function SiteHeader({ searchQuery, onSearchChange, onNavigate }: SiteHead
             type="search"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Buscar tenis, botas, zapatos..."
+            placeholder="Search sneakers, boots, shoes..."
             className="w-full rounded-full border border-secondary-foreground/15 bg-secondary-foreground/10 py-2 pl-9 pr-4 text-sm text-secondary-foreground placeholder:text-secondary-foreground/50 focus:border-primary focus:outline-none"
-            aria-label="Buscar productos"
+            aria-label="Search products"
           />
         </div>
 
-        <nav className="hidden items-center gap-5 lg:flex" aria-label="Categorías">
+        <nav className="hidden items-center gap-5 lg:flex" aria-label="Categories">
           {NAV_LINKS.map((link) => (
             <button
               key={link.label}
               type="button"
               onClick={() => onNavigate(link.category)}
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                link.label === 'Ofertas' ? 'text-primary' : 'text-secondary-foreground/80'
+                link.label === 'Sale' ? 'text-primary' : 'text-secondary-foreground/80'
               }`}
             >
               {link.label}
@@ -66,7 +66,7 @@ export function SiteHeader({ searchQuery, onSearchChange, onNavigate }: SiteHead
           type="button"
           onClick={openDrawer}
           className="relative ml-auto rounded-full p-2 transition-colors hover:bg-secondary-foreground/10 lg:ml-0"
-          aria-label={`Abrir carrito, ${itemCount} artículos`}
+          aria-label={`Open cart, ${itemCount} items`}
         >
           <ShoppingBag className="size-5" aria-hidden="true" />
           {itemCount > 0 && (
@@ -87,9 +87,9 @@ export function SiteHeader({ searchQuery, onSearchChange, onNavigate }: SiteHead
             type="search"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Buscar calzado..."
+            placeholder="Search shoes..."
             className="w-full rounded-full border border-secondary-foreground/15 bg-secondary-foreground/10 py-2 pl-9 pr-4 text-sm text-secondary-foreground placeholder:text-secondary-foreground/50 focus:border-primary focus:outline-none"
-            aria-label="Buscar productos"
+            aria-label="Search products"
           />
         </div>
       </div>

@@ -1,40 +1,40 @@
-# Checklist para deploy seguro (desde tu PowerShell)
+# Secure Deploy Checklist (from your PowerShell)
 
-## Paso 1: abrir solo la ruta de Node en esta sesión
+## Step 1: open only the Node path in this session
 ```powershell
 $env:Path = "C:\Program Files\nodejs;" + $env:Path
 ```
 
-## Paso 2: si te sale error de ejecución de scripts
+## Step 2: if you get a script execution error
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 ```
 
-## Paso 3: validar herramientas
+## Step 3: verify tools
 ```powershell
 node --version
 npm --version
 ```
 
-## Paso 4: instalar dependencias del proyecto
+## Step 4: install project dependencies
 ```powershell
 npm install
 ```
 
-## Paso 5: levantar servidor local
+## Step 5: start local server
 ```powershell
 npm run dev
 ```
-Luego abrí `http://localhost:3000`.
+Then open `http://localhost:3000`.
 
-## Paso 6: sincronizar ramas locales (si es necesario)
+## Step 6: sync local branches (if needed)
 ```powershell
 git checkout main
 git push origin main
 ```
 
-## Paso 7: proteger main en GitHub
-- Ve a `https://github.com/angels79977-maker/DEMO-ZAPATERIA/settings/branches`
+## Step 7: protect main on GitHub
+- Go to `https://github.com/angels79977-maker/DEMO-ZAPATERIA/settings/branches`
 - Add rule → Branch name: `main`
   - Require PR => ✅
   - Require 1 approval => ✅
@@ -42,19 +42,19 @@ git push origin main
   - No force pushes => ✅
   - No delete => ✅
 
-## Paso 8: crear PR dev → main
-- Ir a `https://github.com/angels79977-maker/DEMO-ZAPATERIA/compare/dev...main`
-- Clicar Create Pull Request
-- Esperar CI verde y hacer Merge
+## Step 8: create PR dev → main
+- Go to `https://github.com/angels79977-maker/DEMO-ZAPATERIA/compare/dev...main`
+- Click Create Pull Request
+- Wait for green CI and Merge
 
-## Paso 9: conectar Vercel
-- Ir a Vercel → Add New Project → importar `DEMO-ZAPATERIA`
+## Step 9: connect Vercel
+- Go to Vercel → Add New Project → import `DEMO-ZAPATERIA`
 - Framework: Next.js
-- Build: `npm run build` o `npx next build`
+- Build: `npm run build` or `npx next build`
 - Output: `.next`
 - Install: `npm install`
 - Production Branch: `main`
 
-## Paso 10: deploy de producción
-- Trigger deploy desde Vercel o mergear el PR
-- Verificar dominio y SSL en Vercel settings
+## Step 10: production deploy
+- Trigger deploy from Vercel or merge the PR
+- Verify domain and SSL in Vercel settings

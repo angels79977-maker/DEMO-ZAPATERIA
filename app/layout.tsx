@@ -7,9 +7,9 @@ const _geistSans = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'SHOP SHOES — Calzado Premium',
+  title: 'SHOP SHOES — Premium Footwear',
   description:
-    'Tienda en línea de calzado premium para dama, caballero y niños. Envío gratis a todo México en compras mayores a $999. 3 meses sin intereses.',
+    'Online store for premium footwear for women, men, and kids. Free shipping all over United States of America on orders over $999. 3 months interest-free.',
   generator: 'v0.app',
 }
 
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-MX" className="bg-background">
+    <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
