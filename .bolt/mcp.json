@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "linear": {
+      "enabled": true
+    },
+    "github": {
+      "enabled": true
+    },
+    "sentry": {
+      "enabled": true
+    }
+  }
+}
